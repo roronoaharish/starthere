@@ -102,6 +102,8 @@ Creating a Net design.
 
 Creating ".MX" and ".WLNET" files for remote training.
 
+    trainingOoC= Import[FileNameJoin[{Directory[],"finalTrainingSet.m"}]];
+    validation= Import[FileNameJoin[{Directory[],"finalValidationSet.m"}]];
     Export["trainingSetIndex.mx",trainingOoC,"MX"]
     Export["validationSetIndex.mx",validation,"MX"]
     Export["net.wlnet",finalNet]
