@@ -11,7 +11,7 @@
 **Main Results in Detail**
 
 The Goal of the project was to create a classifier which correctly classifies the species of the leaf while taking image file as the input and giving the corresponding species of the leaf, the image belongs to. To do so, a Convolutional Neural Network Model was taken into account. The Network Architecture referred to was "SqueezeNet V1.1 Trained on ImageNet Competition Data". The Dataset consisted of 184 different species, thus the network was designed in the way that it gives out the result distributed among 184 different species and one with the highest probability be interpreted as the species of the image.
-The network is then trained over a training data set of 9727 images of different leafs with a validation dataset of 2498 images to validate the training of the network. The Accuracy obtained is 91.7%, however is this due to over-fitting during the network during the training. This is mainly due the less amount of test dataset present.
+The network is then trained over a training data set of 9727 images of different leafs with a validation dataset of 2498 images to validate the training of the network. The Accuracy obtained is 91.7%, however is this due to over-fitting during the training. This is mainly due to the less amount of test dataset present.
 
 
 **Code of the Project :**
