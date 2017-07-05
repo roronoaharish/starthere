@@ -147,7 +147,7 @@ Round 2 of training.
     		checkpointsPath, 
     		"Interval" -> Quantity[1, "Hours"]
     	},
-    	LearningRateMultipliers -> {"conv10"->1, _ -> None}
+    	LearningRateMultipliers -> {"conv10"->1,"fire7"-> 0.03, _ -> 0.01}
     ]
     
     
