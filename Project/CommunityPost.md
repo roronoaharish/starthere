@@ -99,11 +99,14 @@ Creating a Net design.
     "Input"->NetEncoder[{"Image",{300,300},ColorSpace->"RGB"}],
     "Output"->  NetDecoder[{"Class",$classes}]
     ]
+**The view of Network in Mathematica:**
+
+![enter image description here][1]
 
 Creating ".MX" and ".WLNET" files for remote training.
 
     trainingOoC= Import[FileNameJoin[{Directory[],"finalTrainingSet.m"}]];
-    validation= Import[FileNameJoin[{Directory[],"finalValidationSet.m"}]];
+    validation= Import[FileNameJoin[{Directory[],"finalValidationSet.m"}]];    
     Export["trainingSetIndex.mx",trainingOoC,"MX"]
     Export["validationSetIndex.mx",validation,"MX"]
     Export["net.wlnet",finalNet]
@@ -149,7 +152,7 @@ Round 2 of training.
     		checkpointsPath, 
     		"Interval" -> Quantity[1, "Hours"]
     	},
-        MaxTrainingRounds-> 100,
+MaxTrainingRounds-> 100,
     	LearningRateMultipliers -> {"conv10"->1,"fire7"-> 0.03, _ -> 0.01}
     ]
     
@@ -179,16 +182,35 @@ The network to be trained on a big amount of data set and can used for all the s
 
 Background Info Links/References
 
-Plant Leaf Recognition Using a Convolution Neural Network Wang-Su Jeon1 and Sang-Yong Rhee2 1Department of IT Convergence Engineering, Kyungnam University, Changwon, Korea 2Department of Computer Engineering, Kyungnam University, Changwon, Korea.
+Plant Leaf Recognition Using a Convolution Neural Network Wang-Su Jeon1 and Sang-Yong Rhee2 1Department of IT Convergence Engineering, Kyungnam University, Changwon, Korea 2 Department of Computer Engineering, Kyungnam University, Changwon, Korea.
 
 **Random Training Data:**
 
-![enter image description here][1]
+![enter image description here][2]
 
-[GitHub  repository for the project>>][2]
+**Implementing the Trained net on to the dataset:**
+  
+ Applying on a Random Sample of 5,
+
+    sample=RandomSample[validationSetIOFiles,5];
+    sample= Import/@Keys[sample]
+    net = Import@netPath;
+    (*Applying the network*)
+    net/@sample
+ The Random sample is, 
+![enter image description here][3]
+
+The output given by the network,
+
+![enter image description here][4]
+
+[GitHub  repository for the project>>][5]
 
     
 
 
-  [1]: http://community.wolfram.com//c/portal/getImageAttachment?filename=Capture.PNG&userId=1081661
-  [2]: https://github.com/roronoaharish/WSS-17/tree/master/Project
+  [1]: http://community.wolfram.com//c/portal/getImageAttachment?filename=net.PNG&userId=1081661
+  [2]: http://community.wolfram.com//c/portal/getImageAttachment?filename=Capture.PNG&userId=1081661
+  [3]: http://community.wolfram.com//c/portal/getImageAttachment?filename=input.PNG&userId=1081661
+  [4]: http://community.wolfram.com//c/portal/getImageAttachment?filename=output.PNG&userId=1081661
+  [5]: https://github.com/roronoaharish/WSS-17/tree/master/Project
