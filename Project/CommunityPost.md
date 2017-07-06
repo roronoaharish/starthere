@@ -11,7 +11,7 @@
 **Main Results in Detail**
 
 The Goal of the project was to create a classifier which correctly classifies the species of the leaf while taking image file as the input and giving the corresponding species of the leaf, the image belongs to. To do so, a Convolutional Neural Network Model was taken into account. The Network Architecture referred to was "SqueezeNet V1.1 Trained on ImageNet Competition Data". The Dataset consisted of 184 different species, thus the network was designed in the way that it gives out the result distributed among 184 different species and one with the highest probability be interpreted as the species of the image.
-The network is then trained over a training data set of 9727 images of different leafs with a validation dataset of 2498 images to validate the training of the network. The Accuracy obtained is 91.7%, however is this due to over-fitting during the training. This is mainly due to the less amount of test dataset present.
+The network is then trained over a training data set of 9727 images of different leafs with a validation dataset of 2498 images to validate the training of the network. The Accuracy obtained is 91.7%, however is this due to over-fitting during the training. This is mainly due the less amount of test dataset present.
 
 
 **Code of the Project :**
@@ -142,22 +142,22 @@ Training of the Network.(Script)
     Export[FileNameJoin@{checkpointsPath, "final.wlnet"}, trainedNet];
 Round 2 of training.
 
-    netPath = FileNameJoin[{Directory[],"Checkpoint","final.wlnet"}];
-    trainedNet = NetTrain[
-    	net,
-    	trainingSetIOFiles,
-    	ValidationSet -> validationSetIOFiles,
-    	TrainingProgressCheckpointing -> {
-    		"Directory", 
-    		checkpointsPath, 
-    		"Interval" -> Quantity[1, "Hours"]
-    	},
-MaxTrainingRounds-> 100,
-    	LearningRateMultipliers -> {"conv10"->1,"fire7"-> 0.03, _ -> 0.01}
-    ]
-    
-    
-    Export[FileNameJoin@{checkpointsPath, "2017-07-05T02_38_18_0_100_12200_5.04e-2_3.85e-1.wlnet"}, trainedNet];
+        netPath = FileNameJoin[{Directory[],"Checkpoint","final.wlnet"}];
+        trainedNet = NetTrain[
+        	net,
+        	trainingSetIOFiles,
+        	ValidationSet -> validationSetIOFiles,
+        	TrainingProgressCheckpointing -> {
+        		"Directory", 
+        		checkpointsPath, 
+        		"Interval" -> Quantity[1, "Hours"]
+        	},
+    MaxTrainingRounds-> 100,
+        	LearningRateMultipliers -> {"conv10"->1,"fire7"-> 0.03, _ -> 0.01}
+        ]
+        
+        
+        Export[FileNameJoin@{checkpointsPath, "2017-07-05T02_38_18_0_100_12200_5.04e-2_3.85e-1.wlnet"}, trainedNet];
 
 Function to find the accuracy of the network.
 
@@ -182,7 +182,7 @@ The network to be trained on a big amount of data set and can used for all the s
 
 Background Info Links/References
 
-Plant Leaf Recognition Using a Convolution Neural Network Wang-Su Jeon1 and Sang-Yong Rhee2 1Department of IT Convergence Engineering, Kyungnam University, Changwon, Korea 2 Department of Computer Engineering, Kyungnam University, Changwon, Korea.
+Plant Leaf Recognition Using a Convolution Neural Network Wang-Su Jeon1 and Sang-Yong Rhee2 1Department of IT Convergence Engineering, Kyungnam University, Changwon, Korea 2Department of Computer Engineering, Kyungnam University, Changwon, Korea.
 
 **Random Training Data:**
 
